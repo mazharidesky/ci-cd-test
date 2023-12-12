@@ -40,12 +40,11 @@ class NavbarCustom extends HTMLElement {
   }
 
   initializeBootstrap() {
-    const script = document.createElement("script");
-    script.src =
-      "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js";
+    const script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js';
     script.defer = true;
     this.appendChild(script);
   }
 }
 
-customElements.define("navbar-custom", NavbarCustom);
+customElements.define('navbar-custom', NavbarCustom);
