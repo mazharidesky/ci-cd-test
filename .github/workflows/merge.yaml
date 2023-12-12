@@ -27,7 +27,7 @@ jobs:
 
     - name: Run ESLint Tests
       run: |
-        npm run eslint
+        npm run lint
 
     - name: Push Changes to Your Repository
       if: success()
