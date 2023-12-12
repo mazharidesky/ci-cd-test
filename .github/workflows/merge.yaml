@@ -32,6 +32,6 @@ jobs:
           git remote add other_repo https://github.com/MZAINR/Capstone_Project.git
           git fetch other_repo
           
-          git checkout Capstone_Project/main
+          git checkout production
           git merge --allow-unrelated-histories CICD/merge_branch
           git push origin main
