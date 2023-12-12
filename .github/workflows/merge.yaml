@@ -37,6 +37,8 @@ jobs:
     - name: Push Changes to Your Repository
       if: success()
       run: |
+          git config --global user.email "zainrizqulloh@gmail.com"
+          git config --global user.name "MZAINR"
           git remote add other_repo https://github.com/gilangherdiansyah80/Project_Capstone_EcoSync.git
           git fetch other_repo
           git checkout -b merge_branch other_repo/main
