@@ -13,7 +13,7 @@ jobs:
     - name: Checkout Friend's Repository
       uses: actions/checkout@v2
       with:
-        repository: 'https://github.com/MZAINR-PROJECTS.git'
+        repository: 'MZAINR/https://github.com/MZAINR/Capstone_Project.git'
         ref: 'main' # Ganti dengan branch yang diinginkan
 
     - name: Set up Node.js
