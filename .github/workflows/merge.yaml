@@ -1,4 +1,4 @@
-name: Merge from Other Repository
+name: Push Changes on Success
 
 on:
   push:
@@ -6,32 +6,39 @@ on:
       - main
 
 jobs:
-  merge:
+  lint-and-test:
     runs-on: ubuntu-latest
 
-    env:
-      GITHUB_TOKEN: ${{ secrets.COBA }}
+    strategy:
+      matrix:
+        node-version: [14.x]
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3  # Use version 3 of actions/checkout
-        with:
-          token: ${{ secrets.COBA }}  # Add the token here to authenticate the checkout
+    - name: Checkout repository
+      uses: actions/checkout@v3
 
-      - name: Set up Git
-        run: |
-          git config --global user.email "zainrizqulloh@gmail.com"
-          git config --global user.name "MZAINR"
-          git config --global credential.username "MZAINR"
-      - name: Print Remote Info
-        run: git ls-remote origin
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        
+    - name: Installations
+      run: npm install
 
-      - name: Merge from Other Repository
-        run: |
-          git checkout -b merge_branch main
-          git remote add other_repo https://github.com/MZAINR/Capstone_Project.git
-          git fetch other_repo
-          
-          git checkout -b local_main --track other_repo/main
-          git merge --allow-unrelated-histories merge_branch
-          git push other_repo main
+    - name: Linting
+      run: npm run lint
+
+    - name: Checkout Friend's Repository
+      uses: actions/checkout@v2
+      with:
+        repository: 'MZAINR/Capstone_Project'
+        ref: 'main' # Ganti dengan branch yang diinginkan
+
+    - name: Push Changes to Your Repository
+      if: success()
+      run: |
+        git config user.email "zainrizqulloh@gmail.com
+        git config user.name "Muhammad Zain Rizqulloh"
+        git add .
+        git commit -m "Update code with ESLint fixes"
+        git push origin main
