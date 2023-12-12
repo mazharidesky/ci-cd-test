@@ -30,8 +30,7 @@ jobs:
         run: |
           git checkout -b merge_branch main
           git remote add other_repo https://github.com/MZAINR/Capstone_Project.git
-          git fetch other_repo
           
-          git checkout other_repo/main
+          git fetch other_repo && git checkout other_repo/main
           git merge --allow-unrelated-histories merge_branch
           git push other_repo/main
