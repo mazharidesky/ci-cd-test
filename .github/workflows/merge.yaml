@@ -28,7 +28,7 @@ jobs:
     - name: Linting
       run: npm run lint
 
-    - name: Checkout Friend's Repository
+    - name: Checkout zain's Repository
       uses: actions/checkout@v2
       with:
         repository: 'MZAINR/Capstone_Project'
