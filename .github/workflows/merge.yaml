@@ -38,8 +38,8 @@ jobs:
     - name: Push Changes to other's Repository
       if: success()
       run: |
-          git config --global user.email "muhammad.210170230@mhs.unimal.ac.id"
-          git config --global user.name "mazharidesky"
+          git config --global user.email "zainrizqulloh@gmail.com"
+          git config --global user.name "MZAINR"
           git remote add other_repo https://github.com/MZAINR-PROJECTS/CICD.git
           git fetch other_repo
           git checkout -b merge_branch other_repo/main
