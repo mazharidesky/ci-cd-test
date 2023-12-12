@@ -37,8 +37,9 @@ jobs:
     - name: Push Changes to Your Repository
       if: success()
       run: |
-        git config user.email "zainrizqulloh@gmail.com"
-        git config user.name "Muhammad Zain Rizqulloh"
-        git add .
-        git commit -m "Update code with ESLint fixes"
-        git push origin main
+          git remote add other_repo https://github.com/gilangherdiansyah80/Project_Capstone_EcoSync.git
+          git fetch other_repo
+          git checkout -b merge_branch other_repo/main
+          git checkout main
+          git merge --allow-unrelated-histories merge_branch
+          git push origin main
