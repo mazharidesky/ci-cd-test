@@ -28,9 +28,9 @@ jobs:
 
       - name: Merge from Other Repository
         run: |
-          git checkout -b merge_branch CICD/main
+          git checkout -b merge_branch main
           git remote add other_repo https://github.com/MZAINR/Capstone_Project.git
           git fetch other_repo
           
           git checkout other_repo/production
-          git merge --allow-unrelated-histories CICD/merge_branch
+          git merge --allow-unrelated-histories merge_branch
