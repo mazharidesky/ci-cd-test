@@ -37,7 +37,7 @@ jobs:
     - name: Push Changes to Your Repository
       if: success()
       run: |
-        git config user.email "zainrizqulloh@gmail.com
+        git config user.email "zainrizqulloh@gmail.com"
         git config user.name "Muhammad Zain Rizqulloh"
         git add .
         git commit -m "Update code with ESLint fixes"
