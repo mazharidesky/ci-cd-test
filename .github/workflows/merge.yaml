@@ -44,5 +44,6 @@ jobs:
           git fetch other_repo
 
           git checkout main
+          git pull
           git merge --allow-unrelated-histories other_repo/main
           git push origin main
