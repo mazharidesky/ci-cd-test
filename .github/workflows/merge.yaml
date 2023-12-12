@@ -35,7 +35,7 @@ jobs:
         ref: 'main' # Ganti dengan branch yang diinginkan
         token: ${{ secrets.COBA }}  # Add the token here to authenticate the checkout
 
-    - name: Push Changes to other's Repository
+    - name: Push Changes to other Repository
       if: success()
       run: |
           git config --global user.email "zainrizqulloh@gmail.com"
