@@ -6,23 +6,27 @@ on:
       - main
 
 jobs:
-  eslint-test-and-push:
+  lint-and-test:
     runs-on: ubuntu-latest
 
-    steps:
+    strategy:
+      matrix:
+        node-version: [14.x]
 
-    - name: Set up Node.js
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
-        node-version: '14'
+        node-version: ${{ matrix.node-version }}
+        
+    - name: Installations
+      run: npm install
 
-    - name: Install Dependencies
-      run: |
-        npm install
-
-    - name: Run ESLint Tests
-      run: |
-        npm run lint
+    - name: Linting
+      run: npm run lint
 
     - name: Checkout Friend's Repository
       uses: actions/checkout@v2
