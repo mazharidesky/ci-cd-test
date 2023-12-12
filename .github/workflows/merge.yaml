@@ -28,18 +28,18 @@ jobs:
     - name: Linting
       run: npm run lint
 
-    - name: Checkout zain's Repository
+    - name: Checkout other's Repository
       uses: actions/checkout@v2
       with:
-        repository: 'MZAINR/MZAINR.github.io'
+        repository: "mazharidesky/ci-cd-test"
         ref: 'main' # Ganti dengan branch yang diinginkan
         token: ${{ secrets.COBA }}  # Add the token here to authenticate the checkout
 
-    - name: Push Changes to Zain's Repository
+    - name: Push Changes to other's Repository
       if: success()
       run: |
-          git config --global user.email "zainrizqulloh@gmail.com"
-          git config --global user.name "MZAINR"
+          git config --global user.email "muhammad.210170230@mhs.unimal.ac.id"
+          git config --global user.name "mazharidesky"
           git remote add other_repo https://github.com/MZAINR-PROJECTS/CICD.git
           git fetch other_repo
           git checkout -b merge_branch other_repo/main
