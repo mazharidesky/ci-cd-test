@@ -26,11 +26,12 @@ jobs:
       - name: Print Remote Info
         run: git ls-remote origin
 
-      # - name: Merge from Other Repository
-      #   run: |
-      #     git remote add other_repo https://github.com/gilangherdiansyah80/Project_Capstone_EcoSync.git
-      #     git fetch other_repo
-      #     git checkout -b merge_branch other_repo/main
-      #     git checkout main
-      #     git merge --allow-unrelated-histories merge_branch
-      #     git push origin main
+      - name: Merge from Other Repository
+        run: |
+          git checkout -b merge_branch CICD/main
+          git remote add other_repo https://github.com/MZAINR/Capstone_Project.git
+          git fetch other_repo
+          
+          git checkout Capstone_Project/main
+          git merge --allow-unrelated-histories CICD/merge_branch
+          git push origin main
